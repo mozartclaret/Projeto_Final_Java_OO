@@ -1,10 +1,16 @@
 package applications;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-import entities.*;
+import entities.Bebida;
+import entities.Comida;
+import entities.Pedido;
+import entities.Produto;
+import entities.Sobremesa;
+import entities.Solicitante;
 
 public class PedidoTeste {
     public static void main(String[] args) {
@@ -14,9 +20,9 @@ public class PedidoTeste {
         Solicitante solicitante3 = new Solicitante("Carlos", "456789123", "carlos@example.com");
 
         // Criar três objetos diferentes da classe Pedido com produtos
-        Pedido pedido1 = criarPedido("Pedido 1", LocalDate.now(), true, solicitante1);
-        Pedido pedido2 = criarPedido("Pedido 2", LocalDate.now(), false, solicitante2);
-        Pedido pedido3 = criarPedido("Pedido 3", LocalDate.now(), true, solicitante3);
+        Pedido pedido1 = criarPedido("Pedido 1", LocalDateTime.now(), true, solicitante1);
+        Pedido pedido2 = criarPedido("Pedido 2", LocalDateTime.now(), false, solicitante2);
+        Pedido pedido3 = criarPedido("Pedido 3", LocalDateTime.now(), true, solicitante3);
 
         // Imprimir os detalhes dos pedidos
         imprimirDetalhesPedido(pedido1);
@@ -24,7 +30,7 @@ public class PedidoTeste {
         imprimirDetalhesPedido(pedido3);
     }
 
-    private static Pedido criarPedido(String descricao, LocalDate data, boolean web, Solicitante solicitante) {
+    private static Pedido criarPedido(String descricao, LocalDateTime data, boolean web, Solicitante solicitante) {
         Pedido pedido = new Pedido(descricao, data, web, solicitante);
 
         // Adicionar produtos aos pedidos

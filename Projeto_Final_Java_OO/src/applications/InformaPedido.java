@@ -1,13 +1,18 @@
 package applications;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-import entities.*;
+import entities.Bebida;
+import entities.Comida;
+import entities.Pedido;
+import entities.Produto;
+import entities.Sobremesa;
+import entities.Solicitante;
 
 public class InformaPedido {
     public static void main(String[] args) {
@@ -22,11 +27,11 @@ public class InformaPedido {
         String descricaoPedido = scanner.nextLine();
 
 //        System.out.print("Data do Pedido (no formato yyyy-MM-dd HH:mm:ss): ");
-        System.out.print("Data do Pedido (no formato dd/MM/yyyy): ");
+        System.out.print("Data do Pedido (no formato dd/MM/yyyy HH:mm:ss): ");
         String dataStr = scanner.nextLine();
 
 //        LocalDateTime dataPedido = LocalDateTime.parse(dataStr, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        LocalDate dataPedido = LocalDate.parse(dataStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        LocalDateTime dataPedido = LocalDateTime.parse(dataStr, DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
 
         System.out.print("Pedido via Web? (true/false): ");
         boolean webPedido = scanner.nextBoolean();

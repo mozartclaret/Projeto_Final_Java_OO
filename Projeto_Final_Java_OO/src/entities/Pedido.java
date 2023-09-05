@@ -1,18 +1,19 @@
 package entities;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
     private String descricao;
-    private LocalDate data;
+    private LocalDateTime data;
     private boolean web;
     private Solicitante solicitante; // Relacionamento 1:1 com Solicitante
     private List<Produto> produtos; // Relacionamento 1:n com Produto
 
-    public Pedido(String descricao, LocalDate data, boolean web, Solicitante solicitante) {
+    public Pedido(String descricao, LocalDateTime data, boolean web, Solicitante solicitante) {
         this.descricao = descricao;
         this.data = data;
         this.web = web;
@@ -40,11 +41,11 @@ public class Pedido {
         this.descricao = descricao;
     }
 
-    public LocalDate getData() {
+    public LocalDateTime getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(LocalDateTime data) {
         this.data = data;
     }
 
@@ -68,7 +69,7 @@ public class Pedido {
     public String toString() {
         return "Pedido{" +
                 "descricao='" + descricao + '\'' +
-                ", data=" + data.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) +
+                ", data=" + data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) +
                 ", web=" + web +
                 ", solicitante=" + solicitante +
                 ", produtos=" + produtos +
